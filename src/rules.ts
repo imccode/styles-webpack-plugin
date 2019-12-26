@@ -1,9 +1,9 @@
-import { Compiler, RuleSetRule, RuleSetUseItem, RuleSetUse } from 'webpack'
-import postcssConfig from './postcssConfig'
-import { PostcssConfigType, StyleWebpackPluginOptions } from './types'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { Compiler, RuleSetRule, RuleSetUse, RuleSetUseItem } from 'webpack'
+import postcssConfig from './postcssConfig'
+import { PostcssConfigType, StylesWebpackPluginOptions } from './types'
 
-export default (options: StyleWebpackPluginOptions, compiler: Compiler) => {
+export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
   const postcssConfigs =
     options.postcssConfigType === PostcssConfigType.custom ? {} : postcssConfig()
 

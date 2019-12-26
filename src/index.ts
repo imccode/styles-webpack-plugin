@@ -1,19 +1,18 @@
-import path from 'path'
 import { Compiler, Configuration } from 'webpack'
-import { StyleWebpackPluginOptions } from './types'
 import mergeOptions from './mergeOptions'
-import rules from './rules'
 import plugins from './plugins'
+import rules from './rules'
+import { StylesWebpackPluginOptions } from './types'
 
 /**
  * 样式webpack插件
  */
-class StyleWebpackPlugin {
-  options: StyleWebpackPluginOptions = {}
+class StylesWebpackPlugin {
+  options: StylesWebpackPluginOptions = {}
 
   webpackConfig: Configuration = {}
 
-  constructor(options: StyleWebpackPluginOptions = {}) {
+  constructor(options: StylesWebpackPluginOptions = {}) {
     this.options = options
   }
 
@@ -36,6 +35,6 @@ class StyleWebpackPlugin {
 }
 
 export * from './types'
-export { StyleWebpackPlugin }
-export default StyleWebpackPlugin
-module.exports = StyleWebpackPlugin
+export { StylesWebpackPlugin }
+export default StylesWebpackPlugin
+module.exports = StylesWebpackPlugin

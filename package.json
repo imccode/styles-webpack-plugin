@@ -1,6 +1,6 @@
 {
   "name": "styles-webpack-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一个处理样式资源的webpack插件",
   "main": "lib/index.js",
   "typings": "types/index.d.ts",
@@ -66,5 +66,18 @@
     "typescript": "latest",
     "vue-loader": "^15.8.3",
     "webpack": "^4.41.4"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid",
+    "insertPragma": false,
+    "tabWidth": 2,
+    "useTabs": false
   }
 }

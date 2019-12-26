@@ -1,10 +1,10 @@
-import { StyleWebpackPluginOptions, PostcssConfigType } from './types'
+import { StylesWebpackPluginOptions, PostcssConfigType } from './types'
 import { Compiler } from 'webpack'
 import path from 'path'
 
-export default (options: StyleWebpackPluginOptions = {}, compiler: Compiler) => {
+export default (options: StylesWebpackPluginOptions = {}, compiler: Compiler) => {
   // 默认配置
-  const defaultOptions: StyleWebpackPluginOptions = {
+  const defaultOptions: StylesWebpackPluginOptions = {
     cacheDirectory:
       compiler.options.mode === 'production'
         ? false
@@ -12,7 +12,7 @@ export default (options: StyleWebpackPluginOptions = {}, compiler: Compiler) => 
     postcssConfigType: PostcssConfigType.add
   }
 
-  const mergeOptions: StyleWebpackPluginOptions = {
+  const mergeOptions: StylesWebpackPluginOptions = {
     ...defaultOptions,
     ...options,
     framework: options.framework || {},

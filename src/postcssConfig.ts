@@ -3,7 +3,6 @@ import postcssImport from 'postcss-import'
 import postcssPresetEnv from 'postcss-preset-env'
 import postcssUrl from 'postcss-url'
 import { PostcssConfiguration, SmartCosmiconfigResult } from './types'
-import chalk from 'chalk'
 
 export default () => {
   const defaultConfig: PostcssConfiguration = {

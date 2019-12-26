@@ -2,9 +2,9 @@ import CompressionWebpackPlugin from 'compression-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { Compiler, Plugin } from 'webpack'
-import { StyleWebpackPluginOptions } from './types'
+import { StylesWebpackPluginOptions } from './types'
 
-export default (options: StyleWebpackPluginOptions, compiler: Compiler) => {
+export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
   if (compiler.options.mode !== 'production') return
 
   const plugins: Plugin[] = [

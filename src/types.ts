@@ -1,9 +1,9 @@
 import CompressionPlugin = require('compression-webpack-plugin')
 
 /**
- * style-webpack-plugin 样式资源 插件的可配参数
+ * styles-webpack-plugin 样式资源 插件的可配参数
  */
-export interface StyleWebpackPluginOptions {
+export interface StylesWebpackPluginOptions {
   /**
    * 启用缓存，指定缓存路径
    *
