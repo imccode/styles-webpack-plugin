@@ -1,16 +1,16 @@
 {
   "name": "styles-webpack-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "一个处理样式资源的webpack插件",
   "main": "lib/index.js",
-  "module": "src/index.ts",
   "typings": "types/index.d.ts",
-  "type": "module",
-  "author": "ccode",
+  "author": {
+    "name": "ccode",
+    "url": "https://github.com/imccode"
+  },
   "files": [
     "LICENSE",
     "README.md",
-    "src/",
     "lib/",
     "types/"
   ],
@@ -29,16 +29,42 @@
   "bugs": {
     "url": "https://github.com/imccode/styles-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/imccode",
-  "scripts": {},
-  "dependencies": {},
+  "homepage": "https://github.com/imccode/styles-webpack-plugin",
+  "scripts": {
+    "dev": "webpack --config ./example/webpack.config.js --mode development -w",
+    "build": "webpack --config ./example/webpack.config.js --mode production",
+    "tsc": "rm -rf types && tsc",
+    "publish-npm": "rm -rf types && tsc && yarn publish --registry https://registry.npmjs.org",
+    "publish-npm:next": "rm -rf types && tsc && yarn publish --registry https://registry.npmjs.org --tag next "
+  },
+  "dependencies": {
+    "cache-loader": "^4.1.0",
+    "compression-webpack-plugin": "^3.0.1",
+    "cosmiconfig": "^6.0.0",
+    "css-loader": "^3.4.0",
+    "cssnano": "^4.1.10",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^7.0.25",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-url": "^8.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-style-loader": "^4.1.2"
+  },
   "devDependencies": {
     "@types/node": "^12.12.5",
-    "@types/webpack": "latest",
+    "@types/webpack": "^4.41.0",
     "prettier": "1.19.1",
-    "ts-node": "latest",
-    "ts-node-dev": "latest",
     "typescript": "latest",
-    "webpack": "latest"
+    "vue-loader": "^15.8.3",
+    "webpack": "^4.41.4"
   }
 }
