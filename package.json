@@ -1,6 +1,6 @@
 {
   "name": "styles-webpack-plugin",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "一个处理样式资源的webpack插件",
   "main": "lib/index.js",
   "typings": "types/index.d.ts",
@@ -62,7 +62,9 @@
   "devDependencies": {
     "@types/node": "^12.12.5",
     "@types/webpack": "^4.41.0",
+    "message-webpack-plugin": "^0.0.6",
     "prettier": "1.19.1",
+    "script-webpack-plugin": "^0.1.3",
     "typescript": "latest",
     "vue-loader": "^15.8.3",
     "webpack": "^4.41.4"
