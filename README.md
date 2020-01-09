@@ -51,7 +51,7 @@ module.exports = {
 
 ## 注意
 
-项目默认使用`postcss`进行脚本转码，见[源码](./src/postcssConfig.ts)
+项目默认使用`postcss`进行样式转码，见[源码](./src/postcssConfig.ts)
 
 默认使用的插件：
 
