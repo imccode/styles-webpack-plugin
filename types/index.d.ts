@@ -8,6 +8,10 @@ declare class StylesWebpackPlugin {
     webpackConfig: Configuration;
     constructor(options?: StylesWebpackPluginOptions);
     /**
+     * package时候存在vue依赖
+     */
+    hasVue(compiler: Compiler): any;
+    /**
      * 执行插件
      * @param compiler
      */

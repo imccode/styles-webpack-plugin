@@ -23,13 +23,6 @@ export interface StylesWebpackPluginOptions {
         [key: string]: any;
     };
     /**
-     * 框架支持情况
-     */
-    framework?: {
-        /** 支持vue 框架编译 */
-        vue?: boolean;
-    };
-    /**
      * 资源生成gzip
      * docs: https://github.com/webpack-contrib/compression-webpack-plugin
      */

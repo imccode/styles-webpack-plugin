@@ -3,7 +3,7 @@ import { Compiler, RuleSetRule, RuleSetUse, RuleSetUseItem } from 'webpack'
 import postcssConfig from './postcssConfig'
 import { StylesWebpackPluginOptions } from './types'
 
-export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
+export default (options: StylesWebpackPluginOptions, compiler: Compiler, isVue?: boolean) => {
 
   const rules: RuleSetRule[] = []
 
@@ -18,7 +18,7 @@ export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
     }
   }
 
-  const styleLoaderName = options.framework.vue ? 'vue-style-loader' : 'style-loader'
+  const styleLoaderName = isVue ? 'vue-style-loader' : 'style-loader'
 
   /**
    * 样式loader配置

@@ -14,7 +14,6 @@ export default (options: StylesWebpackPluginOptions = {}, compiler: Compiler) =>
   const mergeOptions: StylesWebpackPluginOptions = {
     ...defaultOptions,
     ...options,
-    framework: options.framework || {},
     cssLoader: options.cssLoader || {}
   }
 
