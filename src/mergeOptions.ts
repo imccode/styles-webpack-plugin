@@ -1,6 +1,6 @@
-import { StylesWebpackPluginOptions, PostcssConfigType } from './types'
-import { Compiler } from 'webpack'
 import path from 'path'
+import { Compiler } from 'webpack'
+import { StylesWebpackPluginOptions } from './types'
 
 export default (options: StylesWebpackPluginOptions = {}, compiler: Compiler) => {
   // 默认配置
@@ -8,8 +8,7 @@ export default (options: StylesWebpackPluginOptions = {}, compiler: Compiler) =>
     cacheDirectory:
       compiler.options.mode === 'production'
         ? false
-        : path.resolve(compiler.context, 'node_modules/.cache', 'style'),
-    postcssConfigType: PostcssConfigType.add
+        : path.resolve(compiler.context, 'node_modules/.cache', 'style')
   }
 
   const mergeOptions: StylesWebpackPluginOptions = {

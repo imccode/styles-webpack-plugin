@@ -38,23 +38,20 @@ export interface StylesWebpackPluginOptions {
    * docs: https://github.com/webpack-contrib/compression-webpack-plugin
    */
   gzip?: false | CompressionPlugin.Options<any>
-  /** postcss配置的类型 */
-  postcssConfigType?: PostcssConfigType
 }
 
-export enum PostcssConfigType {
-  /** 完全自定义的配置 */
-  custom = 'custom',
-  /** 追加的方式 */
-  add = 'add'
-}
+
+/**
+ * postcss 方法类型
+ */
+ type PostcssFunctionPlugins = (
+  loader?: object
+) => Array<any>
 
 /**
  * postcss 插件类型
  */
-export type PostcssPlugins = (
-  loader?: object
-) => Array<(...args: any) => object> | { [key: string]: any }
+export type PostcssPlugins =  { [key: string]: any } | PostcssFunctionPlugins
 
 /**
  * postcss配置

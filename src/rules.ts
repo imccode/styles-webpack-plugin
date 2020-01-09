@@ -1,11 +1,9 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { Compiler, RuleSetRule, RuleSetUse, RuleSetUseItem } from 'webpack'
 import postcssConfig from './postcssConfig'
-import { PostcssConfigType, StylesWebpackPluginOptions } from './types'
+import { StylesWebpackPluginOptions } from './types'
 
 export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
-  const postcssConfigs =
-    options.postcssConfigType === PostcssConfigType.custom ? {} : postcssConfig()
 
   const rules: RuleSetRule[] = []
 
@@ -47,7 +45,7 @@ export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
      */
     {
       loader: 'postcss-loader',
-      options: postcssConfigs
+      options: postcssConfig(compiler)
     }
   ]
 

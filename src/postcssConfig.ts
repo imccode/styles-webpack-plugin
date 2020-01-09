@@ -2,15 +2,16 @@ import { cosmiconfigSync } from 'cosmiconfig'
 import postcssImport from 'postcss-import'
 import postcssPresetEnv from 'postcss-preset-env'
 import postcssUrl from 'postcss-url'
+import { Compiler } from 'webpack'
 import { PostcssConfiguration, SmartCosmiconfigResult } from './types'
 
-export default () => {
-  const defaultConfig: PostcssConfiguration = {
+export default (compiler: Compiler) => {
+  const postcssConfig = {
     ident: 'postcss',
     /**
      * 插件
      */
-    plugins: () => [
+    plugins: [
       /**
        * 处理css模块导入
        */
@@ -33,19 +34,37 @@ export default () => {
     'postcss'
   ).search()
 
-  let config = defaultConfig
-
   if (userPostcssConfig) {
-    config = userPostcssConfig.config
-
     const { plugins }: PostcssConfiguration = userPostcssConfig.config
-    if (plugins && Array.isArray(plugins)) {
-      const defaultPlugins = defaultConfig.plugins()
-      if (Array.isArray(defaultPlugins)) {
-        config.plugins = () => [...defaultPlugins, ...plugins]
+    if (plugins) {
+      let errors = []
+      let userPlugins = []
+      if (Array.isArray(plugins)) {
+        userPlugins = plugins
+      } else if (typeof plugins === 'function') {
+        userPlugins = plugins()
+      } else if (typeof plugins === 'object') {
+        userPlugins = Object.keys(plugins)
+          .map(name => {
+            try {
+              const postcssModule = require(name)
+              return postcssModule(plugins[name])
+            } catch (error) {
+              errors.push(error.toString())
+            }
+          })
+          .filter(item => !!item)
+      } else {
+        errors.push('Postcss plugins configuration error, Type should be Array, Function, Object')
       }
+
+      postcssConfig.plugins = [...postcssConfig.plugins, ...userPlugins]
+
+      compiler.hooks.emit.tap('StylesWebpackPlugin', compilation => {
+        errors.length > 0 && Array.prototype.push.apply(compilation.errors, errors)
+      })
     }
   }
 
-  return config
+  return postcssConfig
 }
