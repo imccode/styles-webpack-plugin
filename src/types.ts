@@ -20,7 +20,7 @@ export interface StylesWebpackPluginOptions {
         /**
          * 启用/禁用 CSS 模块和设置模式
          */
-        modules?: boolean | Function
+        modules?: any
         /**
          * 未来可能引入的配置
          */
