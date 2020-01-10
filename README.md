@@ -2,7 +2,7 @@
 
 :kissing_heart:一个处理样式资源的webpack插件。
 
-特性：支持`.css` `.less` `.scss` `.sass` `.styl` `stylus` `.sss` 样式文件处理，运行环境按需补丁(css前缀)、自动分包、代码压缩、生成gizp、支持vue、开发环境缓存构建。
+特性：支持`.css` `.less` `.scss` `.sass` `.styl` `stylus` `.sss` 样式文件处理，运行环境按需补丁(css前缀)、自动分包、代码压缩、生成gizp、开发环境缓存构建。
 
 :point_right:
 [![github](https://img.shields.io/github/release-date/imccode/styles-webpack-plugin.svg)](https://github.com/imccode/styles-webpack-plugin/releases)
@@ -40,9 +40,6 @@ module.exports = {
     new StylesWebpackPlugin({
       cssLoader: {
         modules: true
-      },
-      framework: {
-        vue: true
       }
     })
   ]

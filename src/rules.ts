@@ -3,7 +3,7 @@ import { Compiler, RuleSetRule, RuleSetUse, RuleSetUseItem } from 'webpack'
 import postcssConfig from './postcssConfig'
 import { StylesWebpackPluginOptions } from './types'
 
-export default (options: StylesWebpackPluginOptions, compiler: Compiler, isVue?: boolean) => {
+export default (options: StylesWebpackPluginOptions, compiler: Compiler) => {
 
   const rules: RuleSetRule[] = []
 
@@ -18,8 +18,6 @@ export default (options: StylesWebpackPluginOptions, compiler: Compiler, isVue?:
     }
   }
 
-  const styleLoaderName = isVue ? 'vue-style-loader' : 'style-loader'
-
   /**
    * 样式loader配置
    *
@@ -33,7 +31,7 @@ export default (options: StylesWebpackPluginOptions, compiler: Compiler, isVue?:
      *
      * 生成css样式为html行内样式
      */
-    compiler.options.mode === 'development' ? { loader: styleLoaderName } : miniCssExtractConf,
+    compiler.options.mode === 'development' ? { loader: 'style-loader' } : miniCssExtractConf,
     /**
      * 处理其他预编译样式生成的css
      */
